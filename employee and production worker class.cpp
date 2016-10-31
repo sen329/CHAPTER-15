@@ -79,6 +79,7 @@ int main(){
 	string name;
 	int number, date, shift;
 	double hourlypayrate;
+	char answer;
 	
 do{
 	
@@ -110,8 +111,12 @@ do{
 	cout << "Employee employed date: \t" << employeeA.getdate()<<endl;
 	cout << "Employee shift: \t" << prodWorA.getshift()<<endl;
 	cout << "Employee hourly pay: \t"<<prodWorA.gethourlypayrate()<<endl;
+	cout << "run program again? Y/N";
+	cin >> answer;
 }
 
+while (answer == 'y' || answer == 'Y');
 
 }
+
 
