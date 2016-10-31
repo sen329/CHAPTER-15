@@ -15,18 +15,7 @@ public:
 	void setname(string);
 	void setnumber(int);
 	void setdate(int);
-};
-
-class ProductionWorker:public Employee{
-private:
-	int shift;
-	double hourlypayrate;
-public: 
-	ProductionWorker(int shift, double hourlypayrate);
-	void setshift(int);
-	int getshift();
-	void sethourlypayrate(double);
-	int gethourlypayrate();
+	void print();
 };
 
 Employee::Employee(string name, int number, int date){
@@ -60,10 +49,20 @@ void Employee::setdate(int date){
 	this -> date= date;
 } 
 
-ProductionWorker::ProductionWorker(int shift, double hourlypayrate){
-	this -> shift = shift;
-	this -> hourlypayrate = hourlypayrate;
-}
+class ProductionWorker:public Employee{
+private:
+	int shift;
+	double hourlypayrate;
+public: 
+	ProductionWorker(int shift, double hourlypayrate);
+	void setshift(int);
+	int getshift();
+	void sethourlypayrate(double);
+	int gethourlypayrate();
+	void print();
+};
+
+
 
 void ProductionWorker::setshift(int shift){
 	this -> shift = shift;
@@ -81,48 +80,40 @@ int ProductionWorker::getshift(){
 	return shift;
 }
 
-int main(){
-	string name;
-	int number, date, shift;
-	double hourlypayrate;
-	char answer;
+void ProductionWorker::print(){
+	cout << "Employee name: "<<getname()<<endl;
+	cout << "Employee Number: "<< getnumber()<<endl;
+	cout << "Employee hired date: "<<getdate()<<endl;
+	cout << "Shift: "<<getshift();
 	
-do{
-	
-	cout << "Employee name: "<<endl;
-	cin >> name;
-	
-	cout << "Employee number: "<<endl;
-	cin >> number;
-	
-	cout << "Employee employed date: "<<endl;
-	cin >> date;
-	
-	cout << " Employee shift: "<<endl;
-	cin >> shift;
-	if (shift <0 || shift >2){
-		cout << "only shift 1 and 2 are allowed";
-		cin >> shift;
+	if (shift == 1){
+		cout << "Day shift"<<endl;
+		cout << "Pay rate: $"<< gethourlypayrate()<<endl;
 	}
-	
-	cout << "Employee hourly pay rate: ";
-	cin >> hourlypayrate;
-	
-	
-	Employee employeeA = Employee(name, number, date);
-	ProductionWorker prodWorA= ProductionWorker(shift, hourlypayrate);
-	
-	cout << "Employee name: \t" << employeeA.getname()<<endl;
-	cout << "Employee number: \t" << employeeA.getnumber()<<endl;
-	cout << "Employee employed date: \t" << employeeA.getdate()<<endl;
-	cout << "Employee shift: \t" << prodWorA.getshift()<<endl;
-	cout << "Employee hourly pay: \t"<<prodWorA.gethourlypayrate()<<endl;
-	cout << "run program again? Y/N";
-	cin >> answer;
+	else if(shift == 2){
+		cout << "Night shift"<<endl;
+		cout << "Pay rate: $"<< gethourlypayrate()<<endl;
+	}
+	else {
+		cout << "Invalid shift"<<endl;
+	}
 }
 
-while (answer == 'y' || answer == 'Y');
-
+int main(){
+	int shift;
+	double pay;
+	cout << "Enter shift 1 for day shift or 2 for night shift: "<<endl;
+	cin >> shift;
+	cout << "Enter hourly pay: ";
+	cin >> pay;
+	
+	ProductionWorker empl1(shift, pay);
+	empl1.setname("HANSSEN");
+	empl1.setnumber(743754);
+	empl1.setdate(3-2-2005);
+	empl1.print();
+	return 0;
 }
+
 
 
