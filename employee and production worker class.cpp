@@ -64,7 +64,7 @@ public:
 
 ProductionWorker::ProductionWorker(int shift, double hourlypayrate){
 	this -> shift = shift;
-	this -> hourlypayrate = hourlypayrate;
+	this -> hourlypayrate= hourlypayrate;
 }
 
 void ProductionWorker::setshift(int shift){
@@ -107,13 +107,13 @@ int main(){
 	double pay;
 	cout << "Enter shift 1 for day shift or 2 for night shift: "<<endl;
 	cin >> shift;
-	cout << "Enter hourly pay: "
+	cout << "Enter hourly pay: ";
 	cin >> pay;
 	
 	ProductionWorker empl1(shift, pay);
 	empl1.setname("HANSSEN");
 	empl1.setnumber(743754);
-	empl1.setdate("3-2-2005");
+	empl1.setdate(3-2-2005);
 	empl1.print();
 	return 0;
 }
