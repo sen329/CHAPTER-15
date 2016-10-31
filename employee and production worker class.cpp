@@ -35,6 +35,7 @@ Employee::Employee(string name, int number, int date){
 	this -> date = date;
 }
 
+
 string Employee::getname(){
 	return name;
 }
@@ -58,6 +59,11 @@ void Employee::setnumber(int number){
 void Employee::setdate(int date){
 	this -> date= date;
 } 
+
+ProductionWorker::ProductionWorker(int shift, double hourlypayrate){
+	this -> shift = shift;
+	this -> hourlypayrate = hourlypayrate;
+}
 
 void ProductionWorker::setshift(int shift){
 	this -> shift = shift;
