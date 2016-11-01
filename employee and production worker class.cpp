@@ -8,7 +8,7 @@ protected:
 	int number;
 	int date;
 public: 
-	Employee(string name, int number, int date);
+	Employee();
 	string getname();
 	int getnumber();
 	int getdate();
@@ -18,7 +18,7 @@ public:
 	void print();
 };
 
-Employee::Employee(string name, int number, int date){
+Employee::Employee(){
 	this -> name = name;
 	this -> number = number;
 	this -> date = date;
@@ -54,7 +54,10 @@ private:
 	int shift;
 	double hourlypayrate;
 public: 
-	ProductionWorker(int shift, double hourlypayrate);
+	ProductionWorker(int shift, double hourlypayrate){
+		this -> shift = shift;
+		this -> hourlypayrate = hourlypayrate;
+	};
 	void setshift(int);
 	int getshift();
 	void sethourlypayrate(double);
@@ -62,10 +65,6 @@ public:
 	void print();
 };
 
-ProductionWorker::ProductionWorker(int shift, double hourlypayrate){
-	this -> shift = shift;
-	this -> hourlypayrate= hourlypayrate;
-}
 
 void ProductionWorker::setshift(int shift){
 	this -> shift = shift;
