@@ -101,9 +101,49 @@ void ProductionWorker::print(){
 	}
 }
 
+class ShiftSupervisor:public Employee{
+private:
+	int AnnualSalary;
+	int AnnualProductionBonus;
+public: 
+	ShiftSupervisor(int AnnualSalary, int AnnualProductionBonus){
+		this -> AnnualSalary = AnnualSalary;
+		this -> AnnualProductionBonus = AnnualProductionBonus;
+	}
+	int getAnnualSalary();
+	void setAnnualSalary(int);
+	int getAnnualProductionBonus();
+	void setAnnualProductionBonus(int);
+	void print2();
+};
+
+void ShiftSupervisor::setAnnualSalary(int AnnualSalary){
+	this -> AnnualSalary = AnnualSalary; 
+}
+
+void ShiftSupervisor::setAnnualProductionBonus(int AnnualProductionBonus){
+	this -> AnnualProductionBonus = AnnualProductionBonus;
+}
+
+int ShiftSupervisor::getAnnualSalary(){
+	return AnnualSalary;
+}
+
+int ShiftSupervisor::getAnnualProductionBonus(){
+	return AnnualProductionBonus;
+}
+
+void ShiftSupervisor::print2(){
+	cout << "Shift Supervisor salary"<<endl;
+	cout << "Annual Salary: $"<<getAnnualSalary()<<endl;
+	cout << "Annual Production Bonus: $" <<getAnnualProductionBonus()<<endl; 
+}
+
 int main(){
 	int shift;
 	double pay;
+	int AnnualSalary;
+	int AnnualProductionBonus;
 	cout << "Enter shift 1 for day shift or 2 for night shift: "<<endl;
 	cin >> shift;
 	cout << "Enter hourly pay: ";
@@ -114,6 +154,11 @@ int main(){
 	empl1.setnumber(743754);
 	empl1.setdate("3-2-2005");
 	empl1.print();
+	
+	ShiftSupervisor emplAS1(AnnualSalary, AnnualProductionBonus);
+	emplAS1.setAnnualSalary(500);
+	emplAS1.setAnnualProductionBonus(100);
+	emplAS1.print2();
 	return 0;
 }
 
